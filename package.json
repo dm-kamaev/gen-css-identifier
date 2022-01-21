@@ -1,0 +1,43 @@
+{
+  "name": "@ignis-web/gen-css-identifier",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "devDependencies": {
+    "jest": "27.4.5",
+    "eslint": "8.5.0",
+    "eslint-plugin-unicorn": "39.0.0"
+  },
+  "keywords": [
+    "obfuscate",
+    "generator",
+    "minify",
+    "identifiers",
+    "css",
+    "hash",
+    "short",
+    "shorten",
+    "name",
+    "class",
+    "classname",
+    "name",
+    "unique",
+    "id",
+    "short class name",
+    "shorten class name",
+    "short class unique name",
+    "unique id",
+    "unique dom id"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dm-kamaev/gen-css-identifier.git"
+  },
+  "author": "dm-kamaev@rambler.ru",
+  "license": "ISC"
+}
+
+
