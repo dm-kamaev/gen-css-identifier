@@ -1,7 +1,7 @@
 {
   "name": "@ignis-web/gen-css-identifier",
   "version": "0.0.1",
-  "description": "",
+  "description": "Library for generation short and unique identifiers: class name or id",
   "main": "index.js",
   "scripts": {
     "test": "npx jest"
