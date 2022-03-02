@@ -49,6 +49,24 @@ const genId = new GenCssIdentifier('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQR
 
 ```
 
+If you want getting the same value for specific identifier. You can use method `getFor`:
+```js
+const GenCssIdentifier = require('@ignis-web/gen-css-identifier');
+
+const genId = new GenCssIdentifier('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');
+console.log(genId.getFor('key')); // a
+console.log(genId.getFor('key') === genId.getFor('key')); // true
+```
+
+In addition, you can set something prefix for generated identifiers. For example:
+```js
+const GenCssIdentifier = require('@ignis-web/gen-css-identifier');
+
+const genId = new GenCssIdentifier('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 'prefix-');
+console.log(genId.next()); // prefix-a
+console.log(genId.next()); // prefix-b
+```
+
 ### Algorithm
 In algorithm of work not contain magics or difficult cryptographic methods. Library is applies the approach as in calculus systems (for example, decimal system). The next identifier equals previous plus one, but instead of digits (0...9) we use characters of alphabet.
 

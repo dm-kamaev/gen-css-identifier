@@ -81,4 +81,30 @@ describe('[GeneratorClassName.js]', function () {
   });
 
 
+  it('generate minified name by key', async function () {
+    let i = 10000;
+    const generator = new GeneratorClassName('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');
+    const result = generator.getFor('key');
+    while (i) {
+      generator.next();
+      i--;
+    }
+    expect(result).toEqual(generator.getFor('key'));
+  });
+
+  it('set prefix', async function () {
+    let i = 1000000;
+    const list = [];
+    const prefix = 'prefix-';
+    const generator = new GeneratorClassName('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', prefix).except(['ga']);
+    while (i) {
+      list.push(generator.next());
+      i--;
+    }
+    expect(list).toBeDistinct();
+    expect(list).not.toEqual(expect.arrayContaining(['ga']));
+    list.forEach(el => expect(el.startsWith(prefix)).toBeTruthy());
+  });
+
+
 });

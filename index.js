@@ -1,19 +1,27 @@
 'use strict';
 
 module.exports = class GeneratorClassName {
-  // ['a', 'b', 'c', 'd']
-  constructor(alphabet) {
+  /**
+   *
+   * @param {[string || string[]]} alphabet - ['a', 'b', 'c', 'd'] || 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+   * @param {[string]} prefix - something prefix
+   */
+  constructor(alphabet, prefix) {
     if (!alphabet) {
       alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     }
     if (typeof alphabet === 'string') {
       alphabet = alphabet.split('');
     }
+
+    this._prefix = prefix ?? '';
+
     this._link_list = new Link_list(alphabet.map(el => el+''));
     this._curr = [];
     this._pos = 0;
 
     this._except = new Set([]);
+    this._cache = {};
   }
 
   next() {
@@ -21,7 +29,15 @@ module.exports = class GeneratorClassName {
     do {
       result = this._next();
     } while (this._except.has(result));
-    return result;
+    return this._prefix+result;
+  }
+
+  getFor(key) {
+    const result = this._cache[key];
+    if (result) {
+      return result;
+    }
+    return this._cache[key] = this.next();
   }
 
   _next() {

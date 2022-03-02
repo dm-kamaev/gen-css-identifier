@@ -1,6 +1,6 @@
 {
   "name": "@ignis-web/gen-css-identifier",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Library for generation short and unique identifiers: class name or id",
   "main": "index.js",
   "scripts": {
