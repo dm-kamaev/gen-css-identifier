@@ -1,15 +1,14 @@
 {
   "name": "@ignis-web/gen-css-identifier",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Library for generation short and unique identifiers: class name or id",
   "main": "index.js",
-  "scripts": {
-    "test": "npx jest"
-  },
+  "scripts": {},
   "devDependencies": {
-    "jest": "27.4.5",
+    "coverage-badges": "1.0.7",
     "eslint": "8.5.0",
-    "eslint-plugin-unicorn": "39.0.0"
+    "eslint-plugin-unicorn": "39.0.0",
+    "jest": "27.4.5"
   },
   "keywords": [
     "obfuscate",
@@ -39,5 +38,3 @@
   "author": "dm-kamaev@rambler.ru",
   "license": "ISC"
 }
-
-

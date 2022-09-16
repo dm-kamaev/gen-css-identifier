@@ -1,6 +1,6 @@
 'use strict';
 
-const GeneratorClassName = require('./index');
+const Generator = require('./index');
 
 expect.extend({
   toBeDistinct(received) {
@@ -23,7 +23,7 @@ describe('[GeneratorClassName.js]', function () {
   let generator;
 
   beforeAll(() => {
-    generator = new GeneratorClassName(['a', 'b', 'c', 'd']);
+    generator = new Generator(['a', 'b', 'c', 'd']);
   });
 
   // afterEach(() => {
@@ -57,6 +57,7 @@ describe('[GeneratorClassName.js]', function () {
     expect(generator.next()).toBe(expected);
   });
 
+
   it('сheck unique', async function () {
     let i = 10000000;
     const list = [];
@@ -71,7 +72,7 @@ describe('[GeneratorClassName.js]', function () {
   it('сheck unique and test except: for string constructor', async function () {
     let i = 1000000;
     const list = [];
-    const generator = new GeneratorClassName('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789').except(['ga']);
+    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789').except(['ga']);
     while (i) {
       list.push(generator.next());
       i--;
@@ -83,7 +84,7 @@ describe('[GeneratorClassName.js]', function () {
 
   it('generate minified name by key', async function () {
     let i = 10000;
-    const generator = new GeneratorClassName('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');
+    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');
     const result = generator.getFor('key');
     while (i) {
       generator.next();
@@ -96,7 +97,7 @@ describe('[GeneratorClassName.js]', function () {
     let i = 1000000;
     const list = [];
     const prefix = 'prefix-';
-    const generator = new GeneratorClassName('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', prefix).except(['ga']);
+    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', prefix).except(['ga']);
     while (i) {
       list.push(generator.next());
       i--;

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class GeneratorClassName {
+module.exports = class Generator {
   /**
    *
    * @param {[string || string[]]} alphabet - ['a', 'b', 'c', 'd'] || 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
