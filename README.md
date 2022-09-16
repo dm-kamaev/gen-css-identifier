@@ -1,6 +1,6 @@
 # Generation css identifier
 
-[![Actions Status](https://github.com/dm-kamaev/gen-css-identifier/workflows/Build/badge.svg)](https://github.com/dm-kamaev/gen-css-identifier/actions)[Coverage](https://github.com/dm-kamaev/gen-css-identifier/blob/master/badges/coverage.svg)
+[![Actions Status](https://github.com/dm-kamaev/gen-css-identifier/workflows/Build/badge.svg)](https://github.com/dm-kamaev/gen-css-identifier/actions)![Coverage](https://github.com/dm-kamaev/gen-css-identifier/blob/master/badges/coverage.svg)
 
 
 Library for generation short and unique identifiers: class name or id. This package is allow can generation unlimited number of identifier with minimal costs of CPU. Length of identifier dependent of size alphabet. The more characters there are in the alphabet, the longer the identifier will remain the shortest.
