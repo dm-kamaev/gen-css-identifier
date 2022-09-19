@@ -26,9 +26,6 @@ describe('[GeneratorClassName.js]', function () {
     generator = new Generator(['a', 'b', 'c', 'd']);
   });
 
-  // afterEach(() => {
-  //   generator = new GeneratorClassName(['a', 'b', 'c', 'd']);
-  // });
 
   test.each([
     ['a'], ['b'], ['c'], ['d'],
@@ -97,7 +94,7 @@ describe('[GeneratorClassName.js]', function () {
     let i = 1000000;
     const list = [];
     const prefix = 'prefix-';
-    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', prefix).except(['ga']);
+    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', { prefix }).except(['ga']);
     while (i) {
       list.push(generator.next());
       i--;
@@ -105,6 +102,38 @@ describe('[GeneratorClassName.js]', function () {
     expect(list).toBeDistinct();
     expect(list).not.toEqual(expect.arrayContaining(['ga']));
     list.forEach(el => expect(el.startsWith(prefix)).toBeTruthy());
+  });
+
+
+  it('not starts with: as array', async function () {
+    let i = 1000000;
+    const list = [];
+    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', { notStartsWith: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] });
+    // const generator = new Generator('ab0123456789', { notStartsWith: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] });
+    const not_start_with_digit = /^\d+/;
+    while (i) {
+      const value = generator.next();
+      expect(value).not.toMatch(not_start_with_digit);
+      list.push(value);
+      i--;
+    }
+    // console.log(JSON.stringify(list, null, 2));
+    expect(list).toBeDistinct();
+  });
+
+  it('not starts with: as string', async function () {
+    let i = 1000;
+    const list = [];
+    const generator = new Generator('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', { notStartsWith: '0123456789' });
+    const not_start_with_digit = /^\d+/;
+    while (i) {
+      const value = generator.next();
+      expect(value).not.toMatch(not_start_with_digit);
+      list.push(value);
+      i--;
+    }
+    // console.log(JSON.stringify(list, null, 2));
+    expect(list).toBeDistinct();
   });
 
 
